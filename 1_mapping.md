@@ -3,6 +3,8 @@
 
 Raw data processing was done with a pipeline I wrote here (https://github.com/xinsun1/tools_ngs/tree/main/tools_sunxin)
 
+If you are going to process your data, I recommend Paleomix (https://github.com/xinsun1/General_pipeline/blob/main/Popgen/aDNA.mapping.md)
+
 Here is the detail of our parameter choice
 ## 1. cutadapt
 Double strand libary
