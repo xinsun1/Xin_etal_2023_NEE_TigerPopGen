@@ -6,3 +6,4 @@ The following steps were used.
  - Modeling the suitability with current climate data and applied the model to historial climate data.
  - Applied vegetation layer suitability based on IUCN description.
 
+Sample distribution `./files/tiger_distribution_all_mod.csv`

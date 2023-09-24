@@ -1,0 +1,139 @@
+GENERAL-INFO-START
+
+		seq-file		rand5k_gphocs
+		trace-file		trace_set2_R_AP
+		burn-in		0
+		mcmc-iterations		500000
+		mcmc-sample-skip		99
+		start-mig		20000
+		iterations-per-log		100
+		logs-per-line		10
+
+		tau-theta-print		10000
+		tau-theta-alpha		1
+		tau-theta-beta		1000
+
+		mig-rate-print		0.001
+		mig-rate-alpha		0.01
+		mig-rate-beta		0.0001
+
+		locus-mut-rate		VAR		1.0
+
+		find-finetunes		TRUE
+		find-finetunes-num-steps		2000
+		find-finetunes-samples-per-step		100
+
+
+GENERAL-INFO-END
+
+
+CURRENT-POPS-START
+
+		POP-START
+				name		RUSA
+				samples		RUSA d 
+		POP-END
+
+		POP-START
+				name		PTV
+				samples		PTV d 
+		POP-END
+
+		POP-START
+				name		COR
+				samples		COR2 d 
+		POP-END
+
+		POP-START
+				name		JAX
+				samples		JAX2 d 
+		POP-END
+
+		POP-START
+				name		AMO
+				samples		AMO2 d 
+		POP-END
+
+		POP-START
+				name		AMUR
+				samples		AMUR2 d 
+		POP-END
+
+		POP-START
+				name		TIG
+				samples		TIG2 d 
+		POP-END
+
+		POP-START
+				name		SUM
+				samples		SUM2 d 
+		POP-END
+
+		POP-START
+				name		OUT
+				samples		PLE d 
+		POP-END
+
+CURRENT-POPS-END
+
+
+ANCESTRAL-POPS-START
+
+		POP-START
+				name		AN_CJ
+				children		COR		JAX
+		POP-END
+
+		POP-START
+				name		AN_AMP
+				children		AMUR		PTV
+		POP-END
+
+		POP-START
+				name		AN_AP
+				children		AMO		AN_AMP
+		POP-END
+
+		POP-START
+				name		AN_RA
+				children		RUSA		AN_AP
+		POP-END
+
+		POP-START
+				name		AN_RA_CJ
+				children		AN_CJ		AN_RA
+		POP-END
+
+		POP-START
+				name		AN_TIG_div
+				children		AN_RA_CJ		TIG
+		POP-END
+
+		POP-START
+				name		AN_SUM_div
+				children		AN_TIG_div		SUM
+		POP-END
+
+		POP-START
+				name		AN_tiger
+				children		AN_SUM_div		OUT
+		POP-END
+
+ANCESTRAL-POPS-END
+
+
+MIG-BANDS-START
+
+		BAND-START
+				source		RUSA
+				target		AN_AP
+		BAND-END
+
+		BAND-START
+				source		AN_AP
+				target		RUSA
+		BAND-END
+
+MIG-BANDS-END
+
+

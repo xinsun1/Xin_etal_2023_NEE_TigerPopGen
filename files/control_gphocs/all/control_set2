@@ -1,0 +1,253 @@
+GENERAL-INFO-START
+
+		seq-file		gphocs_all
+		trace-file		trace_set2
+		burn-in		0
+		mcmc-iterations		1000000
+		mcmc-sample-skip		99
+		start-mig		0
+		iterations-per-log		100
+		logs-per-line		10
+
+		tau-theta-print		10000
+#		tau-theta-alpha		1
+# 		tau-theta-beta		1000
+
+		mig-rate-print		0.001
+ 		mig-rate-alpha		0.01
+		mig-rate-beta		0.0001
+
+		locus-mut-rate		VAR		0.8
+
+		find-finetunes		TRUE
+		find-finetunes-num-steps		2000
+		find-finetunes-samples-per-step		100
+
+
+GENERAL-INFO-END
+
+
+CURRENT-POPS-START
+
+		POP-START
+				name		RUSA
+				samples		RUSA d 
+				theta-alpha	0.095
+				theta-beta	1000
+		POP-END
+
+		POP-START
+				name		PTV
+				samples		PTV d 
+				theta-alpha	0.014
+				theta-beta	1000
+		POP-END
+
+		POP-START
+				name		COR
+				samples		COR2 d 
+				theta-alpha	0.11
+				theta-beta	1000
+		POP-END
+
+		POP-START
+				name		JAX
+				samples		JAX2 d 
+				theta-alpha	0.054
+				theta-beta	1000
+		POP-END
+
+		POP-START
+				name		AMO
+				samples		AMO2 d 
+				theta-alpha	0.050
+				theta-beta	1000
+		POP-END
+
+		POP-START
+				name		AMUR
+				samples		AMUR2 d 
+				theta-alpha	0.029
+				theta-beta	1000
+		POP-END
+
+		POP-START
+				name		TIG
+				samples		TIG2 d 
+				theta-alpha	0.077
+				theta-beta	1000
+		POP-END
+
+		POP-START
+				name		SUM
+				samples		SUM2 d 
+				theta-alpha	0.033
+				theta-beta	1000
+		POP-END
+
+		POP-START
+				name		OUT
+				samples		PLE d 
+				theta-alpha	0.51
+				theta-beta	1000
+			POP-END
+
+CURRENT-POPS-END
+
+
+ANCESTRAL-POPS-START
+
+		POP-START
+				name		AN_CJ
+				children		COR		JAX
+				theta-alpha		0.26
+				theta-beta		1000
+				tau-alpha		0.0074
+				tau-beta		1000
+				tau-initial		0.0074
+		POP-END
+
+		POP-START
+				name		AN_AMP
+				children		AMUR		PTV
+				theta-alpha		0.23
+				theta-beta		1000
+				tau-alpha		0.0093
+				tau-beta		1000
+				tau-initial		0.0093
+		POP-END
+
+		POP-START
+				name		AN_AP
+				children		AMO		AN_AMP
+				theta-alpha		0.19
+				theta-beta		1000
+				tau-alpha		0.011
+				tau-beta		1000
+				tau-initial		0.011
+	
+		POP-END
+
+		POP-START
+				name		AN_RA
+				children		RUSA		AN_AP
+				theta-alpha		0.82
+				theta-beta		1000
+				tau-alpha		0.013
+				tau-beta		1000
+				tau-initial		0.013
+		POP-END
+
+		POP-START
+				name		AN_RA_CJ
+				children		AN_CJ		AN_RA
+				theta-alpha		0.48
+				theta-beta		1000
+				tau-alpha		0.014
+				tau-beta		1000
+				tau-initial		0.014
+		POP-END
+
+		POP-START
+				name		AN_TIG_div
+				children		AN_RA_CJ		TIG
+				theta-alpha		0.26
+				theta-beta		1000
+				tau-alpha		0.015
+				tau-beta		1000
+				tau-initial		0.015
+		POP-END
+
+		POP-START
+				name		AN_SUM_div
+				children		AN_TIG_div		SUM
+				theta-alpha		0.94
+				theta-beta		1000
+				tau-alpha		0.017
+				tau-beta		1000
+				tau-initial		0.017
+		POP-END
+
+		POP-START
+				name		AN_tiger
+				children		AN_SUM_div		OUT
+				theta-alpha		2.50
+				theta-beta		1000
+				tau-alpha		1.64
+				tau-beta		1000
+				tau-initial		1.64
+		POP-END
+
+ANCESTRAL-POPS-END
+
+
+MIG-BANDS-START
+
+		BAND-START
+				source		AMO
+				target		AMUR
+		BAND-END
+
+		BAND-START
+				source		AMO
+				target		COR
+		BAND-END
+
+		BAND-START
+				source		AMO
+				target		SUM
+		BAND-END
+
+		BAND-START
+				source		AMO
+				target		RUSA
+		BAND-END
+
+		BAND-START
+				source		COR
+				target		AMO
+		BAND-END
+
+		BAND-START
+				source		COR
+				target		AMUR
+		BAND-END
+
+		BAND-START
+				source		COR
+				target		TIG
+		BAND-END
+
+		BAND-START
+				source		JAX
+				target		AMO
+		BAND-END
+
+		BAND-START
+				source		JAX
+				target		SUM
+		BAND-END
+
+		BAND-START
+				source		JAX
+				target		TIG
+		BAND-END
+
+		BAND-START
+				source		PTV
+				target		TIG
+		BAND-END
+
+		BAND-START
+				source		TIG
+				target		COR
+		BAND-END
+
+		BAND-START
+				source		TIG
+				target		PTV
+		BAND-END
+
+MIG-BANDS-END
+
+
